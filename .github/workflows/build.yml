@@ -45,7 +45,7 @@ jobs:
       - name: Ensure Android credentials
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: eas credentials -p android --non-interactive --force
+        run: eas credentials -p android
 
       - name: Build APK
         env:
