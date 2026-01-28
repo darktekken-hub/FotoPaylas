@@ -10,12 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-  
+
       - name: Setup Expo
         uses: expo/expo-github-action@v8
         with:
@@ -35,7 +37,7 @@ jobs:
             npm install --no-audit --no-fund
           fi
 
-- name: Init EAS
+      - name: Init EAS
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: eas init --non-interactive --force
